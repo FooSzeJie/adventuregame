@@ -99,7 +99,7 @@ class StoryBrain {
     _storyNumber = 0;
   }
 
-  // When storyNumber is 3, 4, 5 will not return false, otherwise will return true
+  // When storyNumber is 3, 4, 5 will return false, otherwise will return true
   bool buttonShouldBeVisible() {
     if(_storyNumber == 0) {
       return true;
