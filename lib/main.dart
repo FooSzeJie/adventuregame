@@ -9,8 +9,14 @@ class AdventureGame extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData.dark(), // we are using the dark theme
+      theme: ThemeData(
+        brightness: Brightness.dark,
+
+        // Font Family
+        fontFamily: 'DeliciousHandrawn',
+      ), // we are using the dark theme
       home: StoryPage(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
@@ -30,10 +36,11 @@ class _StoryPageState extends State<StoryPage> {
       body: Container(
         padding: EdgeInsets.symmetric(vertical: 50.0, horizontal: 15.0),
         constraints: BoxConstraints.expand(),
+
         // Add the background Image
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/starry.jpg'),
+            image: AssetImage('assets/images/starry.jpg'),
             fit: BoxFit.cover,
           ),
         ),
@@ -48,7 +55,7 @@ class _StoryPageState extends State<StoryPage> {
                     // Get the story from storyBrain
                     storyBrain.getStory(),
                     style: TextStyle(
-                      fontSize: 25.0,
+                      fontSize: 30.0,
                     ),
                   ),
                 ),
@@ -67,14 +74,19 @@ class _StoryPageState extends State<StoryPage> {
                             (states) => Colors.red),
                     foregroundColor: MaterialStateProperty.resolveWith(
                             (states) => Colors.white),
+                    // shape: MaterialStateProperty.resolveWith(
+                    //         (states) => BeveledRectangleBorder()),
                     shape: MaterialStateProperty.resolveWith(
-                            (states) => BeveledRectangleBorder()),
+                          (states) => RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(20)),
+                      ),
+                    ),
                   ),
                   child: Text(
                     // Get the choice 1 from storyBrain
                     storyBrain.getChoice1(),
                     style: TextStyle(
-                      fontSize: 20.0,
+                      fontSize: 23.0,
                     ),
                   ),
                 ),
@@ -99,14 +111,20 @@ class _StoryPageState extends State<StoryPage> {
                               (states) => Colors.blue),
                       foregroundColor: MaterialStateProperty.resolveWith(
                               (states) => Colors.white),
+                      // shape: MaterialStateProperty.resolveWith(
+                      //         (states) => BeveledRectangleBorder()),
                       shape: MaterialStateProperty.resolveWith(
-                              (states) => BeveledRectangleBorder()),
+                                (states) => RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                                ),
+                      ),
+
                     ),
                     child: Text(
                       // Get the choice 2 from storyBrain
                       storyBrain.getChoice2(),
                       style: TextStyle(
-                        fontSize: 20.0,
+                        fontSize: 23.0,
                       ),
                     ),
                   ),
