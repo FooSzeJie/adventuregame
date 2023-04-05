@@ -52,11 +52,6 @@ class StoryBrain {
     return _storyData[_storyNumber].choice2;
   }
 
-  // Get choice 1 from the _storyData
-  String getStoryNumber() {
-    return _storyNumber.toString();
-  }
-
   void nextStory(int choiceNumber) {
 
     // Story 0
